@@ -1,5 +1,4 @@
 // prorate.test.js
-
 // Import the prorate function
 const { prorate } = require('../scripts/prorate.js');
 
@@ -12,21 +11,7 @@ test('test simple 1 json data', () => {
     const event = { preventDefault: jest.fn() };
 
     // Define test input data
-    const formData = {
-        allocation_amount: 100,
-        investor_amounts: [
-            {
-                name: 'Investor A',
-                requested_amount: 100,
-                average_amount: 100,
-            },
-            {
-                name: 'Investor B',
-                requested_amount: 25,
-                average_amount: 25,
-            },
-        ],
-    };
+    const formData = require('../data/simple_1_input.json');
 
     // Call the prorate function with the test data
     const proratedInvestorsAmounts = prorate(event, formData);
@@ -55,21 +40,7 @@ test('test simple 2 json data', () => {
     const event = { preventDefault: jest.fn() };
 
     // Define test input data
-    const formData = {
-        allocation_amount: 200,
-        investor_amounts: [
-            {
-                name: 'Investor A',
-                requested_amount: 100,
-                average_amount: 100,
-            },
-            {
-                name: 'Investor B',
-                requested_amount: 25,
-                average_amount: 25,
-            },
-        ],
-    };
+    const formData = require('../data/simple_2_input.json');
 
     // Call the prorate function with the test data
     const proratedInvestorsAmounts = prorate(event, formData);
@@ -98,26 +69,7 @@ test('test complex 1 json data', () => {
     const event = { preventDefault: jest.fn() };
 
     // Define test input data
-    const formData = {
-        allocation_amount: 100,
-        investor_amounts: [
-            {
-                name: 'Investor A',
-                requested_amount: 100,
-                average_amount: 95,
-            },
-            {
-                name: 'Investor B',
-                requested_amount: 2,
-                average_amount: 1,
-            },
-            {
-                name: 'Investor C',
-                requested_amount: 1,
-                average_amount: 4,
-            },
-        ],
-    };
+    const formData = require('../data/complex_1_input.json');
 
     // Call the prorate function with the test data
     const proratedInvestorsAmounts = prorate(event, formData);
@@ -150,26 +102,7 @@ test('test complex 2 json data', () => {
     const event = { preventDefault: jest.fn() };
 
     // Define test input data
-    const formData = {
-        allocation_amount: 100,
-        investor_amounts: [
-            {
-                name: 'Investor A',
-                requested_amount: 100,
-                average_amount: 95,
-            },
-            {
-                name: 'Investor B',
-                requested_amount: 1,
-                average_amount: 1,
-            },
-            {
-                name: 'Investor C',
-                requested_amount: 1,
-                average_amount: 4,
-            },
-        ],
-    };
+    const formData = require('../data/complex_2_input.json');
 
     // Call the prorate function with the test data
     const proratedInvestorsAmounts = prorate(event, formData);
