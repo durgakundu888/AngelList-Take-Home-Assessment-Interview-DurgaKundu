@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Personal Project</title>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+        <script type="text/javascript" src="./scripts/prorate.js"></script>
+        <script type="text/javascript" src="./scripts/index.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Inputs</h1>
+            <form id="form">
+                <div id="allocation">
+                    <label>Total Available Allocation</label>
+                    <input type="number" step="any" min="0" class="form-control col-md-4" placeholder="$ Allocation" required/>
+                </div>
+                <div id="investors">
+                <label>Investor Breakdown</label>
+                <div class="row mb-3">
+                    <input type="text" class="form-control col-md-3 mr-md-2 mb-2" placeholder="Name" required/>
+                    <input type="number" step="any" min="0" class="form-control col-md-3 mr-md-2 mb-2" placeholder="$ Requested Amount" required/>
+                    <input type="number" step="any" min="0" class="form-control col-md-3 mb-2" placeholder="$ Average Amount" required/>
+                </div>
+                <div class="row mb-3">
+                    <input type="text" class="form-control col-md-3 mr-md-2 mb-2" placeholder="Name"/>
+                    <input type="number" step="any" min="0" class="form-control col-md-3 mr-md-2 mb-2" placeholder="$ Requested Amount"/>
+                    <input type="number" step="any" min="0" class="form-control col-md-3 mb-2" placeholder="$ Average Amount"/>
+                    <button type="button" class="btn btn-danger" onclick="deleteInvestor(this)">Delete</button>
+                </div>
+                </div>
+                <button type="button" class="btn btn-success" onclick="addInvestor(this)">Add Investor</button>
+                <button type="submit" class="btn btn-primary" onclick="validateAndConvert(this)">Prorate</button>
+            </form>
+          </div>
+          <div class="container" id="result"></div>
+    </body>
+</html>
