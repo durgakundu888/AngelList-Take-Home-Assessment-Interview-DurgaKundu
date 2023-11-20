@@ -1,0 +1,57 @@
+Prompt
+~~~~~~
+
+An angry investor sent us a note about how they keep getting squeezed down to $25K per deal even
+though their requested amount is $100K. Underneath the hood, this was because there's limited
+allocation (low supply) and a high volume of investors looking to invest (high demand). How should
+we communicate this to an investor in a way that minimizes the damage to our relationship with
+the investor?
+
+In addition, can you think of a better way we could change the proration basis logic so that
+this could potentially happen less often?
+
+Response
+~~~~~~~~
+Below is the email I wrote for the investor:
+
+Subject: AngelList: Clarification and Transparency Regarding Your Investment Allocations
+
+Dear Investor A,
+
+I hope this email finds you well. We appreciate your ongoing engagement with AngelList and value the trust you have placed in our investment platform. I wanted to address the concerns you raised in your recent note and provide some insights into the factors influencing your investment allocations.
+
+We have carefully reviewed your feedback regarding the consistent allocation of $25K despite your requested amount being $100K. We understand the frustration this may have caused and want to offer transparency into the factors contributing to this situation.
+
+At AngelList, we operate in a dynamic market where the supply of available investments is often limited, and the demand from investors like yourself is exceptionally high. This delicate balance can sometimes result in allocations that may not fully meet the requested amounts.
+
+To ensure fairness and equal opportunity for all our investors, we have implemented an allocation prioritization system. This system considers various factors, including the overall demand, individual investor preferences, and the available supply for each deal. While we strive to accommodate all investor requests, the high demand for certain opportunities may lead to partial allocations.
+
+Our team is diligently working to refine our allocation strategies and enhance the overall investor experience. We are committed to finding solutions that strike a balance between high demand and limited supply, ensuring fair and equitable opportunities for all our investors.
+
+Your feedback is crucial to our continuous improvement, and we encourage you to share any further insights or suggestions you may have. We are here to listen and respond to your concerns, and your input plays a significant role in shaping the future enhancements of our platform.
+
+If you have specific questions about your current allocations or if there's anything else you would like to discuss, our dedicated support team is ready to assist you. Please feel free to reach out to them at [support@angellist.com].
+
+We genuinely appreciate your understanding of the complexities involved, and we remain committed to providing you with a positive and rewarding investment experience.
+
+Thank you for your continued trust in AngelList.
+
+- The AngelList Team
+
+Below are 8 ways to improve the allocation tool & ensure fewer investors experience this again:
+
+1. Introduce priority tiers for investors based on factors such as seniority, loyalty, or investment history. Investors in higher priority tiers could receive priority allocations when demand exceeds supply.
+
+2. Implement a dynamic proration system that considers the magnitude of the difference between requested amounts and available supply. If an investor consistently receives allocations significantly below their request, the system could adjust the proration parameters for future deals to provide a more balanced distribution.
+
+3. Allow investors to set preferences regarding their desired proration strategy. Some investors may prefer smaller allocations across a broader range of deals, while others may prioritize larger allocations in fewer opportunities. Providing flexibility in proration preferences can enhance investor satisfaction.
+
+4. Clearly communicate the proration basis and allocation strategy to investors, ensuring they are aware of the factors influencing their allocations. Transparency can help manage expectations and reduce frustration.
+
+5. Use predictive modeling based on historical data to forecast demand for upcoming deals. This can help in optimizing proration parameters and identifying potential allocation challenges in advance.
+
+6. Regularly review and iterate on the proration basis logic based on investor feedback and platform performance. Continuous improvement and adaptation to changing market conditions can lead to a more effective allocation system.
+
+7. Explore the possibility of matching investor preferences with deal characteristics. For example, an investor interested in a specific industry or deal type could receive priority in allocations that align with their preferences.
+
+8. Establish a feedback mechanism that allows investors to provide real-time feedback on their allocation experiences. Use this feedback to identify areas for improvement and adjust the proration basis logic accordingly.

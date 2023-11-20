@@ -1,0 +1,122 @@
+Prompt
+~~~~~~
+
+Suppose we discover a bug with our algorithm and investors for two deals had incorrect
+allocations. This means that some of the investors ended up investing more than they were allowed to
+while others invested less than they were allowed to. One of deals happened two years ago and the
+other one happened two weeks ago. Please describe, in detail, how would you go about correcting this
+issue and how would you communicate this to the affected customers.
+
+Response
+~~~~~~~~
+Below are the steps I would take to correct the issue:
+
+1. Identify the Bug:
+
+Thoroughly analyze and identify the root cause of the bug that resulted in incorrect allocations. Understand how the bug affected the allocation for each investor in both deals.
+
+2. Develop a Fix:
+
+Once the bug is identified, work on developing a fix for the algorithm. Implement and thoroughly test the fix to ensure that it rectifies the issue without introducing new problems.
+
+3. Data Validation and Correction:
+
+Analyze the historical data for both deals to determine the extent of the incorrect allocations.
+Develop a script or function to correct the allocations for affected investors based on the fixed algorithm.
+
+4. Back-Testing:
+
+Conduct thorough back-testing on the corrected algorithm with historical data to ensure that it produces accurate results.
+
+5. Implement the Fix:
+
+Deploy the corrected algorithm to our platform in staging and production, ensuring that it is seamlessly integrated into the current infrastructure.
+
+6. Verification:
+
+Verify that the corrected allocations for the affected investors are accurate and align with the corrected algorithm.
+
+
+Below is the first email to Investor A from two years ago:
+
+Subject: AngelList: Correction in Your Recent Investment Allocation
+
+Dear Investor A,
+
+I trust this message finds you well. We appreciate your continued partnership with us and value the trust you've placed in our investment platform.
+
+I am writing to bring to your attention an issue we recently discovered regarding the investment allocations for a deal you participated in approximately two years ago. After a thorough review, it has come to our attention that there was an error in the allocation algorithm, which resulted in some investors, including yourself, exceeding their allowed investment limits.
+
+Firstly, let me extend our sincere apologies for any inconvenience this may have caused. At AngelList, we take our commitment to transparency and accuracy very seriously, and we are dedicated to rectifying this situation promptly.
+
+What Went Wrong?
+
+Our team identified a bug in the allocation algorithm that led to discrepancies in the investment amounts for certain participants, including yourself, in the mentioned deal. We understand the importance of accurate allocations, and we want to assure you that steps have been taken to address this issue.
+
+How We Are Fixing It:
+
+To ensure the accuracy of investment allocations, we have:
+
+Identified and Resolved the Bug: Our technical team has successfully identified and rectified the underlying issue in the allocation algorithm to prevent any recurrence.
+
+Data Correction: We are in the process of implementing a data correction mechanism to adjust the allocations for affected investors, including yourself, to align with the allowed limits.
+
+Your Corrected Allocation:
+
+Following the implementation of the fix, you will receive a detailed breakdown of your corrected allocation. We want to ensure full transparency in this process and are committed to making it as seamless as possible for you.
+
+Our Commitment to You:
+
+We understand the importance of your investments, and we want to assure you that steps have been taken to prevent similar issues in the future. Your trust is paramount to us, and we are dedicated to upholding the highest standards of accuracy and reliability in our investment platform.
+
+Next Steps:
+
+In the coming weeks, you will receive notifications regarding the implementation of the corrected allocations. If you have any questions or concerns in the meantime, please feel free to reach out to our dedicated support team at [support@angellist.com].
+
+Once again, we apologize for any inconvenience this may have caused and appreciate your understanding as we work to rectify this situation promptly.
+
+Thank you for your continued trust in AngelList.
+
+- The AngelList Team
+
+Below is the second email to Investor B from two weeks ago:
+
+Subject: AngelList: Correction in Your Recent Investment Allocation
+
+Dear Investor B,
+
+I hope this message finds you in good spirits. We appreciate your recent investment with AngelList and value the trust you've placed in our platform.
+
+I am reaching out to you with an important update regarding the investment allocation for the deal you participated in approximately two weeks ago. Following a thorough review, it has come to our attention that there was an error in the allocation process, resulting in some investors, including yourself, receiving allocations below their allowed investment limits.
+
+We understand the significance of accurate allocations, and we want to extend our sincere apologies for any inconvenience this may have caused. At AngelList, we are committed to transparency and accountability, and we are taking immediate steps to address and rectify this situation.
+
+What Went Wrong?
+
+Our team identified a glitch in the allocation system that led to discrepancies in investment amounts for certain participants, and unfortunately, you were one of the investors affected. We recognize the importance of precise allocations and want to assure you that corrective measures are already in progress.
+
+How We Are Fixing It:
+
+To ensure accurate and fair allocations, we are taking the following actions:
+
+Bug Resolution: Our technical team has diligently identified and resolved the underlying issue in the allocation process to prevent any recurrence.
+
+Adjustment of Allocations: We are implementing a solution to adjust the allocations for affected investors, including yourself, to align with the allowed limits.
+
+Your Corrected Allocation:
+
+Following the implementation of the fix, you will receive a comprehensive breakdown of your corrected allocation. We are committed to providing transparency throughout this process and are dedicated to making it as seamless as possible for you.
+
+Our Commitment to You:
+
+We understand the significance of your investments, and we want to assure you that measures have been put in place to prevent similar issues in the future. Your trust is of utmost importance to us, and we remain committed to upholding the highest standards of accuracy and reliability in our investment platform.
+
+Next Steps:
+
+In the coming weeks, you will receive notifications regarding the implementation of the corrected allocations. If you have any questions or concerns in the meantime, our dedicated support team is here to assist you. Feel free to reach out to them at [support@angellist.com].
+
+Once again, we apologize for any inconvenience this may have caused and appreciate your understanding as we work to rectify this situation promptly.
+
+Thank you for choosing AngelList. We value your partnership and are committed to providing you with a positive and reliable investment experience.
+
+- The AngelList Team
