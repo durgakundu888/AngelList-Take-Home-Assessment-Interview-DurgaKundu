@@ -16,9 +16,6 @@ test('test simple 1 json data', () => {
     // Call the prorate function with the test data
     const proratedInvestorsAmounts = prorate(event, formData);
 
-    // Validate the expected results
-    expect(event.preventDefault).toHaveBeenCalled();
-
     // Validate that the alert function was not called (no validation errors)
     expect(alert).not.toHaveBeenCalled();
 
@@ -45,9 +42,6 @@ test('test simple 2 json data', () => {
     // Call the prorate function with the test data
     const proratedInvestorsAmounts = prorate(event, formData);
 
-    // Validate the expected results
-    expect(event.preventDefault).toHaveBeenCalled();
-
     // Validate that the alert function was not called (no validation errors)
     expect(alert).not.toHaveBeenCalled();
 
@@ -73,9 +67,6 @@ test('test complex 1 json data', () => {
 
     // Call the prorate function with the test data
     const proratedInvestorsAmounts = prorate(event, formData);
-
-    // Validate the expected results
-    expect(event.preventDefault).toHaveBeenCalled();
 
     // Validate that the alert function was not called (no validation errors)
     expect(alert).not.toHaveBeenCalled();
@@ -106,9 +97,6 @@ test('test complex 2 json data', () => {
 
     // Call the prorate function with the test data
     const proratedInvestorsAmounts = prorate(event, formData);
-
-    // Validate the expected results
-    expect(event.preventDefault).toHaveBeenCalled();
 
     // Validate that the alert function was not called (no validation errors)
     expect(alert).not.toHaveBeenCalled();

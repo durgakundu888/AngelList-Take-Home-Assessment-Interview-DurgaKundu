@@ -1,9 +1,8 @@
 // addinvestor.test.js
-
 // Import the addInvestor function
 const { addInvestor, deleteInvestor, validateAndConvert } = require('../scripts/index.js');
 const { prorate } = require('../scripts/prorate.js');
-
+console.log(prorate);
 // Mock the alert function to capture alerts during tests
 global.alert = jest.fn();
 
@@ -21,6 +20,10 @@ document.body.innerHTML = `
     </div>
     <div id="result"></div>
 `;
+
+jest.mock('../scripts/prorate.js', () => ({
+    prorate: jest.fn(),
+}));
 
 test('addInvestor adds a new investor row to the DOM', () => {
     // Call the addInvestor function

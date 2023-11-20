@@ -1,0 +1,17 @@
+1. Install Jest
+Make sure you have Node.js and npm installed. If not, you can download and install them from Node.js website.
+
+Open a terminal and run the following command to install Jest globally:
+npm install -g jest
+
+2. Run Tests
+In your terminal, navigate to your project root and run one of the following commands:
+npx jest tests/prorate.test.js
+
+That was for testing the backend code. To test the frontend, run:
+
+npx jest tests/form.test.js
+
+OR, you can run this to execute all the tests at once:
+
+npx jest 

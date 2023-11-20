@@ -1,7 +1,5 @@
 function validateAndConvert(event) {
-    // Import prorate at the beginning of scripts/index.js
-    const { prorate } = require('../scripts/prorate.js');
-
+    event.preventDefault();
     const allocationInput = document.querySelector('#allocation input');
     const investorsInputs = document.querySelectorAll('#investors .row input');
 
@@ -50,54 +48,60 @@ function validateAndConvert(event) {
     });
 
     const proratedInvestorsAmounts = prorate(event, formData);
-
     // Display the prorated data on the UI
-    const resultSection = document.getElementById("result");
-    resultSection.innerHTML = "<h1>Results</h1>";
-
+    const resultSection = document.getElementById("finalData");
+    resultSection.innerHTML = '';
     proratedInvestorsAmounts.forEach(investor => {
         const resultRow = document.createElement("div");
         const num = (Math.round(investor.final_amount*Math.pow(10,2))/Math.pow(10,2)).toFixed(2);
         resultRow.innerHTML = `${investor.name} - $${num}`;
         resultSection.appendChild(resultRow);
     });
+    return false;
 }
 function deleteInvestor(btn) {
-    const investorRow = btn.parentNode;
+    const investorRow = btn.parentNode.parentNode;
     investorRow.parentNode.removeChild(investorRow);
 }
 function addInvestor() {
   const investorsDiv = document.getElementById('investors');
 
   const investorDiv = document.createElement('div');
-  investorDiv.className = 'row mb-3';
+  investorDiv.className = 'row';
 
+  const nameDiv = document.createElement('div');
+  nameDiv.className = 'col';
   const nameInput = document.createElement('input');
   nameInput.type = 'text';
-  nameInput.className = 'form-control col-md-3 mr-md-2 mb-2';
-  nameInput.placeholder = 'Name';
+  nameInput.className = 'form-control';
+  nameInput.placeholder = '  Name';
   nameInput.required = true;
 
+  const requestedAmountDiv = document.createElement('div');
+  requestedAmountDiv.className = 'col';
   const requestedAmountInput = document.createElement('input');
   requestedAmountInput.type = 'number';
   requestedAmountInput.step = 'any';
   requestedAmountInput.min = '0';
-  requestedAmountInput.className = 'form-control col-md-3 mr-md-2 mb-2';
-  requestedAmountInput.placeholder = '$ Requested Amount';
+  requestedAmountInput.className = 'form-control';
+  requestedAmountInput.placeholder = '  $ Requested';
   requestedAmountInput.required = true;
 
+  const averageAmountDiv = document.createElement('div');
+  averageAmountDiv.className = 'col';
   const averageAmountInput = document.createElement('input');
   averageAmountInput.type = 'number';
   averageAmountInput.step = 'any';
   averageAmountInput.min = '0';
-  averageAmountInput.className = 'form-control col-md-3 mb-2';
-  averageAmountInput.placeholder = '$ Average Amount';
+  averageAmountInput.className = 'form-control';
+  averageAmountInput.placeholder = '  $ Average';
   averageAmountInput.required = true;
 
+  const deleteDiv = document.createElement('div');
+  deleteDiv.className = 'col';
   const deleteButton = document.createElement('button');
   deleteButton.type = 'button';
-  deleteButton.className = 'btn btn-danger';
-  deleteButton.textContent = 'Delete';
+  deleteButton.className = 'icon-btn btn-large pink darken-4';
   deleteButton.onclick = function() {
     if (investorsDiv && investorDiv) {
       investorsDiv.removeChild(investorDiv);
@@ -106,20 +110,33 @@ function addInvestor() {
     }
   };
 
+  const tag = document.createElement('i');
+  tag.className = 'fa fa-trash fa-2xl';
+  tag.onclick = function() {
+    if (investorsDiv && investorDiv) {
+      investorsDiv.removeChild(investorDiv);
+    } else {
+      console.error('investorsDiv or investorDiv is not defined.');
+    }
+  };
+
   if (investorDiv) {
-    investorDiv.appendChild(nameInput);
-    investorDiv.appendChild(requestedAmountInput);
-    investorDiv.appendChild(averageAmountInput);
-    investorDiv.appendChild(deleteButton);
+    deleteButton.appendChild(tag);
+    nameDiv.appendChild(nameInput);
+    requestedAmountDiv.appendChild(requestedAmountInput);
+    averageAmountDiv.appendChild(averageAmountInput);
+    deleteDiv.appendChild(deleteButton);
+    investorDiv.appendChild(nameDiv);
+    investorDiv.appendChild(requestedAmountDiv);
+    investorDiv.appendChild(averageAmountDiv);
+    investorDiv.appendChild(deleteDiv);
     investorsDiv.appendChild(investorDiv);
   } else {
     console.error('investorDiv is not defined.');
   }
 }
-
-// Export the functions
 module.exports = {
+    validateAndConvert,
     addInvestor,
     deleteInvestor,
-    validateAndConvert,
-};
+}

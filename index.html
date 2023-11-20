@@ -2,37 +2,65 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Personal Project</title>
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-        <script type="text/javascript" src="./scripts/prorate.js"></script>
-        <script type="text/javascript" src="./scripts/index.js"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/materialize/0.95.3/css/materialize.min.css" />
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="/assets/css/style.css" />
+        <script async src="scripts/index.js"></script>
+        <script async src="scripts/prorate.js"></script>
     </head>
     <body>
         <div class="container">
-            <h1>Inputs</h1>
-            <form id="form">
-                <div id="allocation">
-                    <label>Total Available Allocation</label>
-                    <input type="number" step="any" min="0" class="form-control col-md-4" placeholder="$ Allocation" required/>
+            <div class = "row box-container">
+                <div class="col" id="investorForm">
+                    <h1>Inputs</h1>
+                    <form id="form" onsubmit="return validateAndConvert(event)">
+                        <div class="form-group" id="allocation">
+                            <label for="allocationInput" class="white-text">Total Available Allocation</label>
+                            <input type="number" step="any" min="0" class="form-control" id="allocationInput" placeholder="  $ Allocate" required>
+                        </div>
+                        <div class="form-group" id="investors">
+                            <label class="white-text">Investor Breakdown</label>
+                            <div class="row">
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="  Name" required>
+                                </div>
+                                <div class="col">
+                                    <input type="number" step="any" min="0" class="form-control" placeholder="  $ Request" required>
+                                </div>
+                                <div class="col">
+                                    <input type="number" step="any" min="0" class="form-control" placeholder="  $ Average" required>
+                                </div>
+                            </div>
+                
+                            <div class="row">
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="  Name">
+                                </div>
+                                <div class="col">
+                                    <input type="number" step="any" min="0" class="form-control" placeholder="  $ Request">
+                                </div>
+                                <div class="col">
+                                    <input type="number" step="any" min="0" class="form-control" placeholder="  $ Average">
+                                </div>
+                                <div class="col">
+                                    <button class="icon-btn btn-large pink darken-4" onclick="deleteInvestor(this)"><i class="fa fa-trash fa-2xl"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="icon-btn btn-large pink darken-4" onclick="addInvestor()"><i class="fa fa-user-plus fa-2xl"></i></button>
+                        <button class="icon-btn btn-large pink darken-4" onclick="validateAndConvert(this)"><i class="fa fa-calculator fa-2xl"></i></button>
+                    </form>
                 </div>
-                <div id="investors">
-                <label>Investor Breakdown</label>
-                <div class="row mb-3">
-                    <input type="text" class="form-control col-md-3 mr-md-2 mb-2" placeholder="Name" required/>
-                    <input type="number" step="any" min="0" class="form-control col-md-3 mr-md-2 mb-2" placeholder="$ Requested Amount" required/>
-                    <input type="number" step="any" min="0" class="form-control col-md-3 mb-2" placeholder="$ Average Amount" required/>
+                <div class="col-sm-4" id="result">
+                    <h1>Results</h1>
+                    <div id="finalData">
+
+                    </div>
                 </div>
-                <div class="row mb-3">
-                    <input type="text" class="form-control col-md-3 mr-md-2 mb-2" placeholder="Name"/>
-                    <input type="number" step="any" min="0" class="form-control col-md-3 mr-md-2 mb-2" placeholder="$ Requested Amount"/>
-                    <input type="number" step="any" min="0" class="form-control col-md-3 mb-2" placeholder="$ Average Amount"/>
-                    <button type="button" class="btn btn-danger" onclick="deleteInvestor(this)">Delete</button>
-                </div>
-                </div>
-                <button type="button" class="btn btn-success" onclick="addInvestor()">Add Investor</button>
-                <button type="submit" class="btn btn-primary" onclick="validateAndConvert(this)">Prorate</button>
-            </form>
-          </div>
-          <div class="container" id="result"></div>
+            </div>
+        </div>
     </body>
 </html>
