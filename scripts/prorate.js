@@ -26,5 +26,4 @@ function prorate(event, formData) {
         }));
     }
 }
-
-module.exports.prorate = prorate;
+module.exports = { prorate };

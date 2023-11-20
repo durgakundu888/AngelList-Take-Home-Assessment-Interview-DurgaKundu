@@ -1,5 +1,6 @@
 function validateAndConvert(event) {
-    event.preventDefault();
+    // Import prorate at the beginning of scripts/index.js
+    const { prorate } = require('../scripts/prorate.js');
 
     const allocationInput = document.querySelector('#allocation input');
     const investorsInputs = document.querySelectorAll('#investors .row input');
@@ -65,8 +66,7 @@ function deleteInvestor(btn) {
     const investorRow = btn.parentNode;
     investorRow.parentNode.removeChild(investorRow);
 }
-function addInvestor(event) {
-  event.preventDefault();
+function addInvestor() {
   const investorsDiv = document.getElementById('investors');
 
   const investorDiv = document.createElement('div');
@@ -99,13 +99,27 @@ function addInvestor(event) {
   deleteButton.className = 'btn btn-danger';
   deleteButton.textContent = 'Delete';
   deleteButton.onclick = function() {
-  investorsDiv.removeChild(investorDiv);
+    if (investorsDiv && investorDiv) {
+      investorsDiv.removeChild(investorDiv);
+    } else {
+      console.error('investorsDiv or investorDiv is not defined.');
+    }
   };
 
-  investorDiv.appendChild(nameInput);
-  investorDiv.appendChild(requestedAmountInput);
-  investorDiv.appendChild(averageAmountInput);
-  investorDiv.appendChild(deleteButton);
-  investorsDiv.appendChild(investorDiv);
+  if (investorDiv) {
+    investorDiv.appendChild(nameInput);
+    investorDiv.appendChild(requestedAmountInput);
+    investorDiv.appendChild(averageAmountInput);
+    investorDiv.appendChild(deleteButton);
+    investorsDiv.appendChild(investorDiv);
+  } else {
+    console.error('investorDiv is not defined.');
+  }
 }
-module.exports = { validateAndConvert, deleteInvestor, addInvestor };
+
+// Export the functions
+module.exports = {
+    addInvestor,
+    deleteInvestor,
+    validateAndConvert,
+};
