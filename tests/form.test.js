@@ -115,3 +115,127 @@ test('validateAndConvert displays alert for invalid numeric input in investor fo
     // Check if the alert function was called with the expected message
     expect(global.alert).toHaveBeenCalledWith("Please enter valid positive numbers for Requested Amount and Average Amount.");
 });
+
+test('validateAndConvert displays no alert for valid inputs', () => {
+    // Mock the alert function to capture alerts during tests
+    global.alert = jest.fn();
+
+    // Set valid allocation and numeric input values
+    document.querySelector('#allocation input').value = '200';
+    document.querySelector('#investors .row input[placeholder="Name"]').value = 'Investor A';
+    document.querySelector('#investors .row input[placeholder="$ Requested Amount"]').value = '50';
+    document.querySelector('#investors .row input[placeholder="$ Average Amount"]').value = '25';
+
+    // Mock an event object
+    const mockEvent = { preventDefault: jest.fn() };
+
+    // Call the validateAndConvert function
+    validateAndConvert(mockEvent);
+
+    // Check if the alert function was not called
+    expect(global.alert).not.toHaveBeenCalled();
+});
+
+test('validateAndConvert displays alert for missing allocation input', () => {
+    // Mock the alert function to capture alerts during tests
+    global.alert = jest.fn();
+
+    // Set invalid allocation input value (empty)
+    document.querySelector('#allocation input').value = '';
+
+    // Mock an event object
+    const mockEvent = { preventDefault: jest.fn() };
+
+    // Call the validateAndConvert function
+    validateAndConvert(mockEvent);
+
+    // Check if the alert function was called with the expected message
+    expect(global.alert).toHaveBeenCalledWith("Please enter a valid positive number for Allocation.");
+});
+
+test('deleteInvestor does nothing if no investors are present', () => {
+    // Clear the existing investors
+    document.getElementById('investors').innerHTML = '';
+
+    // Call the deleteInvestor function
+    deleteInvestor();
+
+    // No errors should occur
+    expect(true).toBe(true);
+});
+
+test('deleteInvestor does nothing if provided with invalid button', () => {
+    // Call the deleteInvestor function with an invalid button
+    deleteInvestor(null);
+
+    // No errors should occur
+    expect(true).toBe(true);
+});
+
+test('addInvestor handles empty input fields', () => {
+    // Clear existing input values
+    document.querySelector('#investors .row input[placeholder="Name"]').value = '';
+    document.querySelector('#investors .row input[placeholder="$ Requested Amount"]').value = '';
+    document.querySelector('#investors .row input[placeholder="$ Average Amount"]').value = '';
+
+    // Call the addInvestor function
+    addInvestor();
+
+    // Retrieve the investorsDiv after adding an investor
+    const investorsDiv = document.getElementById('investors');
+
+    // Check if a new investor row is added
+    expect(investorsDiv.children.length).toBe(2); // Assuming there was already one row present
+
+    // Check if the new investor row contains the expected input elements with empty values
+    const investorRow = investorsDiv.children[0];
+    const nameInput = investorRow.querySelector('input[placeholder="Name"]');
+    expect(nameInput).toBeTruthy();
+    expect(nameInput.value).toBe('');
+
+    const requestedAmountInput = investorRow.querySelector('input[placeholder="$ Requested Amount"]');
+    expect(requestedAmountInput).toBeTruthy();
+    expect(requestedAmountInput.value).toBe('');
+
+    const averageAmountInput = investorRow.querySelector('input[placeholder="$ Average Amount"]');
+    expect(averageAmountInput).toBeTruthy();
+    expect(averageAmountInput.value).toBe('');
+});
+
+test('validateAndConvert handles non-numeric allocation input', () => {
+    // Mock the alert function to capture alerts during tests
+    global.alert = jest.fn();
+
+    // Set a non-numeric allocation input value
+    document.querySelector('#allocation input').value = 'abc';
+
+    // Mock an event object
+    const mockEvent = { preventDefault: jest.fn() };
+
+    // Call the validateAndConvert function
+    validateAndConvert(mockEvent);
+
+    // Check if the alert function was called with the expected message
+    expect(global.alert).toHaveBeenCalledWith("Please enter a valid positive number for Allocation.");
+});
+
+test('validateAndConvert handles missing investor data', () => {
+    // Mock the alert function to capture alerts during tests
+    global.alert = jest.fn();
+
+    // Set valid allocation value
+    document.querySelector('#allocation input').value = '200';
+
+    // Clear existing investor data
+    document.getElementById('investors').innerHTML = '';
+
+    // Mock an event object
+    const mockEvent = { preventDefault: jest.fn() };
+
+    // Call the validateAndConvert function
+    validateAndConvert(mockEvent);
+
+    // Check if the alert function was called with the expected message
+    expect(global.alert).toHaveBeenCalledWith("Please enter data for at least one investor.");
+});
+
