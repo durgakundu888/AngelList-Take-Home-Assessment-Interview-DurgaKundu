@@ -7,7 +7,7 @@ function prorate(event, formData) {
     const totalRequestedAmount = investorsAmounts.reduce((total, investor) => total + investor.requested_amount, 0);
     const totalAverageAmount = investorsAmounts.reduce((total, investor) => total + investor.average_amount, 0);
 
-    if (allocationAmount > totalRequestedAmount) {
+    if (allocationAmount >= totalRequestedAmount) {
         // No proration needed, allocate as requested
         return investorsAmounts.map(investor => ({
             name: investor.name,
