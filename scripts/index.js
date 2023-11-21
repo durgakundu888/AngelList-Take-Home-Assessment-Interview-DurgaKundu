@@ -60,8 +60,12 @@ function validateAndConvert(event) {
     return false;
 }
 function deleteInvestor(btn) {
+  if (btn && btn.parentNode) {
     const investorRow = btn.parentNode.parentNode;
-    investorRow.parentNode.removeChild(investorRow);
+    if (investorRow.parentNode) {
+        investorRow.parentNode.removeChild(investorRow);
+    }
+  }
 }
 function addInvestor() {
   const investorsDiv = document.getElementById('investors');
@@ -101,7 +105,7 @@ function addInvestor() {
   deleteDiv.className = 'col';
   const deleteButton = document.createElement('button');
   deleteButton.type = 'button';
-  deleteButton.className = 'icon-btn btn-large pink darken-4';
+  deleteButton.className = 'icon-btn btn-large pink darken-4 deleteBtn';
   deleteButton.onclick = function() {
     if (investorsDiv && investorDiv) {
       investorsDiv.removeChild(investorDiv);
