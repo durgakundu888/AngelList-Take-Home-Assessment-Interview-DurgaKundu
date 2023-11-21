@@ -17,6 +17,5 @@ Object.defineProperty(window, 'localStorage', {
   },
   writable: true,
 });
-// Add any other global variables that your code depends on
 global.TextEncoder = require('util').TextEncoder;
 global.TextDecoder = require('util').TextDecoder;
